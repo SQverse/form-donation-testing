@@ -79,28 +79,29 @@
     }
     
     .content-container {
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
     
     @media (min-width: 768px) {
       .content-container {
-        grid-template-columns: 2fr 1fr;
+        flex-direction: row;
+        padding: 2rem;
+      }
+      
+      .form-container {
+        flex: 2;
+      }
+      
+      .info-container {
+        flex: 1;
       }
     }
     
-    .form-container {
-      order: 1;
-    }
-    
-    .info-container {
-      order: 2;
-      background: #f8f9fa;
-      border-radius: var(--border-radius);
-      padding: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    .form-container, .info-container {
+      width: 100%;
     }
     
     .form-group {
@@ -340,7 +341,36 @@
       min-width: 24px;
     }
     
-    @media (max-width: 600px) {
+    /* Responsiveness improvements */
+    @media (max-width: 767px) {
+      body {
+        padding: 0.5rem;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+      
+      .container {
+        margin: 1rem auto;
+        border-radius: 8px;
+      }
+      
+      .header {
+        padding: 1rem;
+      }
+      
+      .header h2 {
+        font-size: 1.5rem;
+      }
+      
+      .header p {
+        font-size: 1rem;
+      }
+      
+      .content-container {
+        padding: 1rem;
+        gap: 1rem;
+      }
+      
       .radio-group {
         flex-direction: column;
       }
@@ -349,8 +379,59 @@
         min-width: 100%;
       }
       
-      .content-container {
+      .bank-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .info-container {
+        margin-top: 1rem;
+      }
+      
+      .benefit-list {
+        grid-template-columns: 1fr 1fr;
+        padding: 0.5rem;
+      }
+      
+      .donation-steps {
+        padding: 1rem;
+      }
+      
+      .step-list li {
+        padding-left: 1.8rem;
+      }
+      
+      .footer-note {
+        padding: 1rem;
+        font-size: 0.85rem;
+      }
+      
+      .whatsapp-btn {
+        padding: 0.8rem;
+        font-size: 1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .header h2 {
+        font-size: 1.3rem;
+      }
+      
+      .header p {
+        font-size: 0.9rem;
+      }
+      
+      .benefit-list {
         grid-template-columns: 1fr;
+      }
+      
+      .step-list li {
+        font-size: 0.9rem;
+      }
+      
+      .footer-note {
+        padding: 0.8rem;
+        font-size: 0.8rem;
       }
     }
     
@@ -535,7 +616,7 @@
           </div>
           
           <div class="form-group">
-            <label for="nama">Nama(Boleh Samaran):</label>
+            <label for="nama">Nama (Boleh Samaran):</label>
             <input type="text" id="nama" name="nama" class="input-control" required>
           </div>
           
