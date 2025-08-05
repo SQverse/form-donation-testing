@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Donasi Pembangunan Asrama Anak Yatim Sunan Drajat</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #007E33;
+      --primary-dark: #005f26;
+      --secondary: #f9f9f9;
+      --accent: #ff6b00;
+      --text: #333;
+      --light-gray: #f0f0f0;
+      --border-radius: 12px;
+      --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0f7ea, #f0f7e0);
+      background-image: url(Web-Images/foto-yayasan1.JPG);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+      margin: 2rem auto;
+      opacity: 0.95;
+    }
+    
+    .header {
+      background: var(--primary);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+    
+    .header h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .header p {
+      opacity: 0.9;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .header::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="1" d="M0,128L48,128C96,128,192,128,288,138.7C384,149,480,171,576,165.3C672,160,768,128,864,112C960,96,1056,96,1152,106.7C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat;
+      background-size: cover;
+    }
+    
+    .content-container {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    @media (min-width: 768px) {
+      .content-container {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+    
+    .form-container {
+      order: 1;
+    }
+    
+    .info-container {
+      order: 2;
+      background: #f8f9fa;
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #444;
+    }
+    
+    .input-control {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .input-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 126, 51, 0.1);
+      outline: none;
+    }
+    
+    .nominal-group, .metode-group {
+      margin-top: 1rem;
+    }
+    
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .radio-label {
+      flex: 1;
+      min-width: 120px;
+    }
+    
+    .radio-input {
+      display: none;
+    }
+    
+    .radio-button {
+      display: block;
+      padding: 0.8rem;
+      background-color: var(--light-gray);
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    .radio-input:checked + .radio-button {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    .radio-button:hover {
+      border-color: var(--primary);
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .whatsapp-btn {
+      width: 100%;
+      padding: 1rem;
+      background-color: #25D366;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .whatsapp-btn:hover {
+      background-color: #128C7E;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .footer-note {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: var(--light-gray);
+      border-top: 1px solid #ddd;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .footer-note strong {
+      color: var(--primary);
+    }
+    
+    .benefit-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background-color: #e8f5e9;
+      border-radius: var(--border-radius);
+    }
+    
+    .benefit-item {
+      text-align: center;
+      padding: 0.5rem;
+    }
+    
+    .benefit-item i {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .progress-container {
+      margin: 1.5rem 0;
+      background-color: var(--light-gray);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+    }
+    
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .progress-bar {
+      height: 10px;
+      background-color: #ddd;
+      position: relative;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      width: 65%;
+      background-color: var(--primary);
+    }
+    
+    .info-box {
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .info-box h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .bank-accounts {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .bank-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .bank-icon {
+      font-size: 2rem;
+      color: #007E33;
+    }
+    
+    .bank-details {
+      flex: 1;
+    }
+    
+    .bank-name {
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .bank-number {
+      font-size: 1.1rem;
+      color: #007E33;
+      margin: 0.3rem 0;
+    }
+    
+    .bank-holder {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    
+    .contact-icon {
+      font-size: 1.2rem;
+      color: var(--primary);
+      min-width: 24px;
+    }
+    
+    @media (max-width: 600px) {
+      .radio-group {
+        flex-direction: column;
+      }
+      
+      .radio-label {
+        min-width: 100%;
+      }
+      
+      .content-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .section-title {
+      color: var(--primary);
+      margin: 1.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--primary);
+    }
+    
+    .quote {
+      background: #e0f7ea;
+      border-left: 4px solid var(--primary);
+      padding: 1rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      border-radius: 8px;
+    }
+    
+    .yayasan-info {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    
+    .message-preview {
+      background: #f8f9fa;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    
+    .message-preview h4 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .form-note {
+      color: #666;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+    
+    .validation-error {
+      color: #e74c3c;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+      display: none;
+    }
+    
+    /* New styles for step-by-step guide */
+    .donation-steps {
+      background: #e8f5e9;
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border: 1px solid #c8e6c9;
+    }
+    
+    .donation-steps h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.3rem;
+    }
+    
+    .step-list {
+      counter-reset: step-counter;
+      padding-left: 1.5rem;
+    }
+    
+    .step-list li {
+      margin-bottom: 1.2rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+    
+    .step-list li:before {
+      counter-increment: step-counter;
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: var(--primary);
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    
+    .step-highlight {
+      background: #ffecb3;
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    
+    .step-icon {
+      color: var(--primary);
+      margin-right: 0.5rem;
+      min-width: 24px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <div class="header">
+      <h2><i class="fas fa-hands-helping"></i> Donasi Pembangunan Asrama Anak Yatim Sunan Drajat</h2>
+      <p>Bantu wujudkan rumah penuh kasih untuk 18 anak yatim dan dhuafa di Semarang</p>
+    </div>
+    
+    <div class="content-container">
+      <div class="form-container">
+        <form id="donasiForm">
+          <div class="form-group">
+            <label>Pilih Nominal Donasi:</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="nominal" value="100000" class="radio-input">
+                <span class="radio-button">Rp 100.000</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="nominal" value="250000" class="radio-input">
+                <span class="radio-button">Rp 250.000</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="nominal" value="500000" class="radio-input">
+                <span class="radio-button">Rp 500.000</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="nominal" value="1000000" class="radio-input">
+                <span class="radio-button">Rp 1.000.000</span>
+              </label>
+            </div>
+            <input type="text" name="nominal_lain" class="input-control" placeholder="Atau tulis nominal lain (contoh: 75000)">
+            <div class="form-note">Contoh penulisan: 50000, 100000, 250000</div>
+          </div>
+          
+          <div class="benefit-list">
+            <div class="benefit-item">
+              <i class="fas fa-home"></i>
+              <div>Asrama Layak</div>
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-file-invoice"></i>
+              <div>Laporan Transparan</div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="metode">Metode Pembayaran:</label>
+            <select id="metode" name="metode_pembayaran" class="input-control" required>
+              <option value="">-- Pilih Metode Pembayaran --</option>
+              <option value="BSI">VA Bank Syariah Indonesia</option>
+              <option value="BRI">VA Bank BRI</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="sapaan">Sapaan:</label>
+            <select id="sapaan" name="sapaan" class="input-control">
+              <option value="Bapak">Bapak</option>
+              <option value="Ibu">Ibu</option>
+              <option value="Saudara">Saudara/i</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="nama">Nama(Boleh Samaran):</label>
+            <input type="text" id="nama" name="nama" class="input-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="telepon">WhatsApp / No HP:</label>
+            <input type="text" id="telepon" name="telepon" class="input-control" required>
+            <div class="form-note">Pastikan nomor WhatsApp aktif untuk konfirmasi</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="pesan">Pesan atau Doa (opsional):</label>
+            <textarea id="pesan" name="pesan" rows="3" class="input-control" placeholder="Tulis pesan atau doa untuk anak-anak yatim"></textarea>
+            <div class="validation-error" id="pesan-error">Pesan minimal 3 karakter dan maksimal 200 karakter</div>
+          </div>
+          
+          <button class="whatsapp-btn" type="button" id="whatsappBtn">
+            <i class="fab fa-whatsapp"></i> Konfirmasi Donasi via WhatsApp
+          </button>
+        </form>
+        
+        <div class="quote">
+          <p><i class="fas fa-quote-left"></i> Barangsiapa yang melepaskan satu kesusahan seorang mukmin, pasti Allah akan melepaskan darinya satu kesusahan pada hari kiamat. <i>(HR. Muslim)</i></p>
+        </div>
+        
+        <!-- New Step-by-Step Guide Container -->
+        <div class="donation-steps">
+          <h3><i class="fas fa-list-ol"></i> Tata Cara Berdonasi</h3>
+          <ol class="step-list">
+            <li>
+              <div><i class="fas fa-pen step-icon"></i> <span class="step-highlight">Isi formulir</span> di atas dengan data diri dan nominal donasi yang ingin Anda berikan</div>
+            </li>
+            <li>
+              <div><i class="fab fa-whatsapp step-icon"></i> Klik tombol <span class="step-highlight">"Konfirmasi Donasi via WhatsApp"</span></div>
+            </li>
+            <li>
+              <div><i class="fas fa-share step-icon"></i> Anda akan diarahkan ke aplikasi WhatsApp untuk mengirim pesan konfirmasi</div>
+            </li>
+            <li>
+              <div><i class="fas fa-money-bill-wave step-icon"></i> Lakukan transfer sesuai nominal donasi ke rekening Yayasan yang tertera di samping</div>
+            </li>
+            <li>
+              <div><i class="fas fa-camera step-icon"></i> Setelah transfer, kirimkan bukti transfer melalui WhatsApp</div>
+            </li>
+            <li>
+              <div><i class="fas fa-check-circle step-icon"></i> Admin akan mengkonfirmasi donasi Anda dan mengirimkan tanda terima</div>
+            </li>
+            <li>
+              <div><i class="fas fa-chart-line step-icon"></i> Pantau perkembangan pembangunan asrama melalui sosial media kami.</div>
+            </li>
+          </ol>
+          <div class="form-note" style="margin-top: 1rem; text-align: center;">
+            <i class="fas fa-info-circle"></i> Proses donasi biasanya dikonfirmasi dalam 1-3 jam kerja
+          </div>
+        </div>
+      </div>
+      
+      <div class="info-container">
+        <div class="info-box">
+          <h3><i class="fas fa-info-circle"></i> Tentang Yayasan</h3>
+          <p><strong>Panti Sosial Anak Asuh Sunan Drajat Semarang</strong> mengasuh 18 anak yatim, piatu, dan dhuafa. Saat ini sedang membangun asrama semi permanen.</p>
+          
+          <div class="yayasan-info">
+            <p><strong>Alamat:</strong><br>
+            Plamongansari RT 01 RW 10 Kel. Plamongansari<br>
+            Kec. Pedurungan, Semarang</p>
+            
+            <p><strong>SK. MENKUMHAM:</strong><br>
+            NO: AHU-0026071.AH.01.12.Tahun 2020</p>
+          </div>
+        </div>
+        
+        <div class="info-box">
+          <h3><i class="fas fa-university"></i> Rekening Donasi</h3>
+          <p>Silahkan transfer ke rekening resmi yayasan:</p>
+          
+          <div class="bank-accounts">
+            <div class="bank-card">
+              <div class="bank-icon">
+                <i class="fas fa-building"></i>
+              </div>
+              <div class="bank-details">
+                <div class="bank-name">Bank BRI</div>
+                <div class="bank-number">0435-01-006628-53-6</div>
+                <div class="bank-holder">a/n PSAA-SD</div>
+              </div>
+            </div>
+            
+            <div class="bank-card">
+              <div class="bank-icon">
+                <i class="fas fa-building"></i>
+              </div>
+              <div class="bank-details">
+                <div class="bank-name">Bank Syariah Indonesia (BSI)</div>
+                <div class="bank-number">7299308302</div>
+                <div class="bank-holder">a/n Yayasan Sunan Drajat Semarang</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="info-box">
+          <h3><i class="fas fa-phone-alt"></i> Kontak Kami</h3>
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <div>085875117400</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>ypantiasuhan@gmail.com</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fab fa-facebook"></i>
+              </div>
+              <div>Panti Asuhan Sunan Drajat</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="info-box">
+          <h3><i class="fas fa-bullseye"></i> Visi & Misi</h3>
+          <p><strong>Visi:</strong> Menjadi lembaga sosial terpercaya dalam membantu, mengasuh, dan membina anak asuh.</p>
+          <p><strong>Misi:</strong> 
+            - Membantu fakir miskin, yatim piatu dan dhuafa<br>
+            - Menanamkan nilai keagamaan dan akhlak<br>
+            - Membekali pendidikan formal & non formal</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-note">
+      <p><strong>Setiap donasi</strong> Anda akan memberikan dampak besar bagi masa depan 18 anak yatim di Panti Asuhan Sunan Drajat Semarang. Kami menjamin transparansi penggunaan dana dan akan memberikan laporan berkala.</p>
+      <p style="margin-top: 10px;">&copy; 2025 Yayasan Panti Asuhan Sunan Drajat Semarang</p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('donasiForm');
+      const whatsappBtn = document.getElementById('whatsappBtn');
+      const pesanInput = document.getElementById('pesan');
+      const pesanError = document.getElementById('pesan-error');
+      
+      // Fungsi untuk membersihkan dan memformat nominal
+      function cleanNominal(value) {
+        // Hapus karakter non-digit kecuali titik
+        let cleaned = value.replace(/[^\d]/g, '');
+        
+        // Konversi ke angka
+        const nominal = parseInt(cleaned) || 0;
+        
+        // Format dengan pemisah ribuan
+        return nominal.toLocaleString('id-ID');
+      }
+      
+      // Fungsi untuk mendapatkan nilai nominal yang dipilih
+      function getSelectedNominal() {
+        const selectedRadio = document.querySelector('input[name="nominal"]:checked');
+        const customNominal = document.querySelector('input[name="nominal_lain"]').value.trim();
+        
+        if (customNominal) {
+          return cleanNominal(customNominal);
+        } else if (selectedRadio) {
+          return cleanNominal(selectedRadio.value);
+        }
+        return null;
+      }
+      
+      // Fungsi untuk validasi pesan/doa
+      function validatePesan() {
+        const pesan = pesanInput.value.trim();
+        
+        // Jika pesan diisi, pastikan memenuhi syarat
+        if (pesan && (pesan.length < 3 || pesan.length > 200)) {
+          pesanError.style.display = 'block';
+          return false;
+        }
+        
+        pesanError.style.display = 'none';
+        return true;
+      }
+      
+      // Validasi saat mengetik di input pesan
+      pesanInput.addEventListener('input', validatePesan);
+      
+      // Fungsi untuk validasi form
+      function validateForm() {
+        const nama = document.getElementById('nama').value.trim();
+        const telepon = document.getElementById('telepon').value.trim();
+        const metode = document.getElementById('metode').value;
+        const nominal = getSelectedNominal();
+        
+        if (!nama) {
+          alert('Harap masukkan nama anda');
+          return false;
+        }
+        
+        if (!telepon) {
+          alert('Harap masukkan nomor WhatsApp/HP!');
+          return false;
+        }
+        
+        if (!metode) {
+          alert('Harap pilih metode pembayaran!');
+          return false;
+        }
+        
+        if (!nominal || nominal === '0') {
+          alert('Harap pilih atau masukkan nominal donasi yang valid!');
+          return false;
+        }
+        
+        if (!validatePesan()) {
+          return false;
+        }
+        
+        return true;
+      }
+      
+      // Event listener untuk tombol WhatsApp
+      whatsappBtn.addEventListener('click', function() {
+        if (!validateForm()) return;
+        
+        const sapaan = document.getElementById('sapaan').value;
+        const nama = document.getElementById('nama').value.trim();
+        const telepon = document.getElementById('telepon').value.trim();
+        const metode = document.getElementById('metode').value;
+        const nominal = getSelectedNominal();
+        let pesan = pesanInput.value.trim();
+        
+        // Jika pesan kosong, ganti dengan "-"
+        if (!pesan) {
+          pesan = "-";
+        }
+        
+        // Format pesan WhatsApp yang lebih baik
+        const whatsappMessage = 
+          `Assalamu'alaikum, saya ingin berdonasi untuk pembangunan asrama anak yatim Sunan Drajat Semarang.\n` +
+          `*Sapaan:* ${sapaan}\n` +
+          `*Nama Donatur:* ${nama}\n` +
+          `*No. WhatsApp:* ${telepon}\n` +
+          `*Nominal Donasi:* Rp ${nominal}\n` +
+          `*Metode Pembayaran:* ${metode}\n` +
+          `*Pesan/Doa:* ${pesan}\n` +
+          `Saya akan segera melakukan transfer donasi melalui ${metode}. Mohon konfirmasi setelah transfer dilakukan. Terima kasih.`;
+        
+        const noWa = "6283198002325"; // Nomor WA yayasan
+        const whatsappUrl = `https://wa.me/${noWa}?text=${encodeURIComponent(whatsappMessage)}`;
+        
+        window.open(whatsappUrl, '_blank');
+      });
+      
+      // Menambahkan efek interaktif pada radio buttons
+      const radioButtons = document.querySelectorAll('.radio-button');
+      radioButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Reset semua radio button
+          radioButtons.forEach(btn => {
+            btn.style.backgroundColor = '';
+            btn.style.color = '';
+            btn.style.borderColor = '';
+          });
+          
+          // Set yang dipilih
+          this.style.backgroundColor = '#007E33';
+          this.style.color = 'white';
+          this.style.borderColor = '#007E33';
+          
+          // Reset input nominal lain
+          document.querySelector('input[name="nominal_lain"]').value = '';
+        });
+      });
+      
+      // Reset radio button saat mengisi nominal lain
+      const customNominalInput = document.querySelector('input[name="nominal_lain"]');
+      customNominalInput.addEventListener('focus', function() {
+        // Uncheck semua radio button
+        document.querySelectorAll('input[name="nominal"]').forEach(radio => {
+          radio.checked = false;
+        });
+        
+        // Reset tampilan radio button
+        radioButtons.forEach(btn => {
+          btn.style.backgroundColor = '';
+          btn.style.color = '';
+          btn.style.borderColor = '';
+        });
+      });
+      
+      // Format input nominal saat diketik
+      customNominalInput.addEventListener('input', function() {
+        const value = this.value;
+        const cursorPos = this.selectionStart;
+        const cleanValue = value.replace(/[^\d]/g, '');
+        
+        if (cleanValue) {
+          const formattedValue = parseInt(cleanValue).toLocaleString('id-ID');
+          this.value = formattedValue;
+          
+          // Atur posisi kursor setelah pemformatan
+          const newCursorPos = cursorPos + (formattedValue.length - value.length);
+          this.setSelectionRange(newCursorPos, newCursorPos);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

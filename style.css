@@ -1,0 +1,832 @@
+/* Global Variables */
+:root {
+  --primary-color: #2C7865;
+  --secondary-color: #3D8361;
+  --accent-color: #D9EDBF;
+  --light-color: #EEF2E6;
+  --dark-color: #1C6758;
+  --text-color: #333;
+  --text-light: #777;
+  --white: #fff;
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --section-padding: 5rem 0;
+  --container-padding: 0 1.5rem;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--light-color);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  /* Tambahkan padding horizontal */
+}
+
+section {
+  padding: var(--section-padding);
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 500;
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+}
+
+/* Btn Orange */
+.btn-orange {
+  background-color: #FF7601;
+  color: var(--white);
+}
+
+.btn-orange:hover {
+  background-color: #e56a00;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+/* Btn Orange End */
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--dark-color);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.btn-secondary {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
+
+.btn-secondary:hover {
+  background-color: #c5d8a8;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.btn-large {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--white);
+  color: var(--white);
+}
+
+.btn-outline:hover {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin: 3rem;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+.section-header p {
+  color: var(--text-light);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 2rem;
+  font-weight: 500;
+  position: relative;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+}
+
+nav a i {
+  margin-right: 8px;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+}
+
+nav a.active {
+  color: var(--accent-color);
+}
+
+nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Hero Section */
+.hero {
+  padding: 8rem 0 4rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 20px 0;
+  margin: 2rem;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-text p.highlight {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--accent-color);
+}
+
+.hero-text p {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.hero-img {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.hero-img img {
+  width: 100%;
+  height: auto;
+  transition: var(--transition);
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+}
+
+/* Stats Section */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 4rem 0;
+  background-color: var(--white);
+}
+
+.stat-item {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.stat-item:hover {
+  transform: translateY(-10px);
+}
+
+.stat-item i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.stat-item h3 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.stat-item p {
+  color: var(--text-light);
+}
+
+/* Project Section */
+.proyek-section {
+  padding: 5rem 0;
+  background-color: var(--light-color);
+}
+
+.galeri-pembangunan {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.proyek-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.proyek-item:hover {
+  transform: translateY(-5px);
+}
+
+.proyek-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.proyek-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: var(--white);
+}
+
+.proyek-info h3 {
+  margin-bottom: 0.5rem;
+}
+
+.progress-container {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 5rem 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Web-Images/cta-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--white);
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-content p {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* Program Cards */
+
+.program-cards,
+.galeri-pembangunan,
+.list-daftar-kegiatan-baru {
+  margin: 20px 0;
+}
+
+.program-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.program-card {
+  background-color: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.program-card:hover {
+  transform: translateY(-10px);
+}
+
+.program-card a {
+  display: block;
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.program-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+}
+
+.program-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.program-card p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* About Page Styles */
+.hero-tentangkami {
+  padding: 8rem 0 4rem;
+  background-color: var(--white);
+}
+
+.hero-tentangkami .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-text-tentangkami h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.hero-text-tentangkami h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+.hero-text-tentangkami p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.hero-img-tentangkami {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* Activities Section */
+.box-daftar-kegiatan {
+  padding: 5rem 0;
+  background-color: var(--light-color);
+}
+
+.list-daftar-kegiatan-baru {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.item-kegiatan {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.item-kegiatan:hover {
+  transform: translateY(-5px);
+}
+
+.item-kegiatan h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+/* Structure Tree */
+.tree {
+  padding: 4rem 0;
+  background-color: #e7f3ec;
+}
+
+.tree-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.node {
+  background-color: var(--white);
+  border-radius: 35px;
+  padding: 1rem;
+  text-align: center;
+  margin: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 220px;
+}
+
+.tree-branch {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.tree-branch::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 30px;
+  background-color: #ccc;
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--dark-color);
+  color: var(--white);
+  padding: 4rem 0 0;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+  margin-left: 2rem;
+}
+
+/* Footer About Page */
+.footer-main-page {
+  text-align: center;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+}
+
+/* Footer Contact Page */
+.footer-contact-page {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+}
+
+.footer-about img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+}
+
+.footer-about p {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.social-media {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-media a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+.social-media a:hover {
+  background-color: var(--accent-color);
+  color: var(--dark-color);
+}
+
+.footer-links h3,
+.footer-contact h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-links h3::after,
+.footer-contact h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+}
+
+.footer-links a:hover {
+  color: var(--accent-color);
+  padding-left: 5px;
+}
+
+.footer-contact p {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.footer-contact i {
+  margin-right: 10px;
+  color: var(--accent-color);
+  width: 20px;
+  text-align: center;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+
+  .hero-content,
+  .hero-tentangkami .container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text,
+  .hero-text-tentangkami {
+    order: 2;
+    text-align: center;
+  }
+
+  .hero-img,
+  .hero-img-tentangkami {
+    order: 1;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .hero-cta,
+  .cta-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .container {
+    padding: 0 15px;
+    /* Sedikit lebih kecil di mobile */
+    width: 95%;
+    /* Lebih lebar di mobile */
+  }
+
+  section {
+    padding: 3rem 0;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background-color: var(--dark-color);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6rem 2rem;
+    transition: var(--transition);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  nav.show {
+    right: 0;
+  }
+
+  nav a {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .hero-text h1,
+  .hero-text-tentangkami h2,
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tree-branch {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding: 6rem 0 3rem;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  .hero-text h1,
+  .hero-text-tentangkami h2,
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .program-cards,
+  .list-daftar-kegiatan-baru {
+    grid-template-columns: 1fr;
+  }
+}

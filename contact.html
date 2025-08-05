@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yayasan Sunan Drajat Semarang</title>
+    <link rel="icon" href="Web-Images/logo-yayasan.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Yayasan Sunan Drajat Semarang - Hubungi kami untuk informasi lebih lanjut tentang program dan donasi.">
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <h2 class="nav-logo">Yayasan Sunan Drajat Semarang</h2>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <nav id="nav-menu">
+          <a href="index.html"><i class="fas fa-home"></i> Beranda</a>
+          <a href="about.html"><i class="fas fa-info-circle"></i> Tentang Kami</a>
+          <a href="contact.html"
+            ><i class="fas fa-phone-alt"></i> Hubungi Kami</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="program-section">
+      <div class="section-header">
+        <h2>Hubungi Kami di</h2>
+        <p>Silakan pilih salah satu metode di bawah ini untuk menghubungi kami</p>
+      </div>
+      <div class="program-cards">
+        <div class="program-card">
+          <a
+            class="program-card-ig"
+            target="_blank"
+            href="https://www.instagram.com/pantiasuhan_sunandrajat/"
+          >
+            <img src="Web-Images/instagram-logo.jpg" alt="Instagram" />
+            <h3>Instagram</h3>
+            <p>Hubungi Kami Melalui Instagram.</p>
+          </a>
+        </div>
+        <div class="program-card">
+          <a
+            class="program-card-wa"
+            href="https://wa.me/6285875117400?text=Halo%20Admin,%20bagaimana%20cara%20berdonasi%20ke%20yayasan%20Sunan%20Drajat%20Semarang?"
+            target="_blank"
+          >
+            <img
+              src="Web-Images/whatsapp-logo-png-green-square.png"
+              alt="Whatsapp"
+            />
+            <h3>Whatsapp</h3>
+            <p>Hubungi Kami Melalui Whatsapp.</p>
+          </a>
+        </div>
+        <div class="program-card">
+          <a
+            class="program-card-fb"
+            target="_blank"
+            href="https://www.facebook.com/pantiasuhansunandrajat"
+          >
+            <img src="Web-Images/logo-facebook.jpeg" alt="Facebook" />
+            <h3>Facebook</h3>
+            <p>Hubungi Kami Melalui Facebook.</p>
+          </a>
+        </div>
+        <div class="program-card">
+          <a
+            class="program-card-gmail"
+            target="_blank"
+            href="mailto:ypantiasuhan@gmail.com"
+          >
+            <img src="Web-Images/logo-gmail.png" alt="Gmail" />
+            <h3>Gmail</h3>
+            <p>Hubungi Kami Melalui Gmail.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-contact-page">
+        <p>&copy; 2025 Yayasan Sunan Drajat Semarang. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("nav-menu").classList.toggle("show");
+      }
+    </script>
+  </body>
+</html>
